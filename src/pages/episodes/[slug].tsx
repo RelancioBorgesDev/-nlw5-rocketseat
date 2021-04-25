@@ -1,8 +1,10 @@
 import { format, parseISO} from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
 import { GetStaticPaths, GetStaticProps } from 'next';
+import Head from 'next/head';
 import Image from 'next/image'
 import Link from 'next/link'
+import React from 'react';
 import { usePlayer } from '../../contexts/PlayerContexts';
 import { api } from '../../services/api';
 import { convertDurationToTimeString } from '../../utils/convertDurationTimeToString';
@@ -30,6 +32,9 @@ export default function Episode({ episode }: EpisodeProps){
     const { play } = usePlayer();
     return(
         <div className={styles.episode}>
+              <Head>
+                <title>Home | Podcastr</title>
+                </Head>
             <div className={styles.thumbnailContainer}>
                 <Link href="/">
                     <button type="button">
